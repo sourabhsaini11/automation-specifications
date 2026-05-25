@@ -2345,6 +2345,7 @@ attribute_set:
                   info: <placeholder description>
                   owner: BAP
                   type: object
+              required: {}
             _description:
               required: true
               usage: ""
@@ -3374,7 +3375,7 @@ attribute_set:
         _description:
           required: true
           usage: ""
-          info: Legal purchase order containing complete contract details between buyer and seller; the BAP includes it in select and the value is anchored in session and reused by later steps.
+          info: Legal purchase order containing complete contract details; the BAP mints it in select and the BPP echoes it in on_select, with the value persisted in session for reuse across downstream steps.
           owner: BAP
           type: object
       _description:
@@ -3886,6 +3887,7 @@ attribute_set:
                     info: Form input container the BPP populates in select, persisting in session under action_order for the BAP to reference in confirm and subsequent steps.
                     owner: BPP
                     type: object
+                  required: {}
                 requestTerm:
                   type:
                     _description:
@@ -3907,6 +3909,7 @@ attribute_set:
                     info: Container for form data the BPP supplies in on_select; the order is anchored in session and reused in confirm, init, and update steps.
                     owner: BPP
                     type: object
+                  required: {}
                 _description:
                   required: false
                   usage: ""
@@ -3956,6 +3959,7 @@ attribute_set:
                 info: It describes the outcome/response of submitting a form.
                 owner: BPP
                 type: object
+            required: {}
           _description:
             required: false
             usage: ""
@@ -4084,7 +4088,7 @@ attribute_set:
         _description:
           required: false
           usage: ""
-          info: BPP returns the order containing the complete legal contract details between buyer and seller; the order is anchored in session and reused across subsequent steps.
+          info: BPP returns the order containing complete legal contract details between buyer and seller, anchored in session and reused across subsequent steps.
           owner: BPP
           type: object
         quote:
@@ -5493,6 +5497,7 @@ attribute_set:
                 info: Form responses submitted by the BAP during init, anchored in session and reused by subsequent steps.
                 owner: BPP
                 type: object
+            required: {}
           parent_item_id:
             _description:
               required: true
@@ -5901,6 +5906,7 @@ attribute_set:
                   info: Payment tag descriptor BAP includes on init; the structure is validated and persisted for use in subsequent steps.
                   owner: BPP
                   type: object
+                short_desc: {}
               value:
                 _description:
                   required: false
@@ -5914,6 +5920,7 @@ attribute_set:
                 info: Container for payment-related tags the BAP specifies during order initialization; stored in the session and reused across subsequent transaction steps.
                 owner: BPP
                 type: object
+            display: {}
         cancellation_terms:
           cancellation_fee:
             percentage:
@@ -7550,6 +7557,7 @@ attribute_set:
                   info: Payment tag descriptor BAP includes on init; the structure is validated and persisted for use in subsequent steps.
                   owner: BPP
                   type: object
+                short_desc: {}
               value:
                 _description:
                   required: false
@@ -7563,6 +7571,7 @@ attribute_set:
                 info: Container for payment-related tags the BAP specifies during order initialization; stored in the session and reused across subsequent transaction steps.
                 owner: BPP
                 type: object
+            display: {}
         cancellation_terms:
           cancellation_fee:
             percentage:
@@ -9181,6 +9190,7 @@ attribute_set:
                   info: Payment tag descriptor BAP includes on init; the structure is validated and persisted for use in subsequent steps.
                   owner: BPP
                   type: object
+                short_desc: {}
               value:
                 _description:
                   required: false
@@ -9194,6 +9204,7 @@ attribute_set:
                 info: Container for payment-related tags the BAP specifies during order initialization; stored in the session and reused across subsequent transaction steps.
                 owner: BPP
                 type: object
+            display: {}
         _description:
           required: true
           usage: ""
@@ -9876,9 +9887,9 @@ attribute_set:
         id:
           _description:
             required: true
-            usage: O1
-            info: TBD
-            owner: BPP
+            usage: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+            info: Human-readable order ID generated by the BPP and received in the on_confirm response; BAP must include this same ID in the update request, which the BPP validates against the session record.
+            owner: BAP
             type: string
         _description:
           required: true
@@ -10617,6 +10628,7 @@ attribute_set:
                 info: BPP specifies the bank code in the payment parameters of the on_init response, anchored in the persisted order for reuse across subsequent steps.
                 owner: BPP
                 type: string
+            transaction_id: {}
           time:
             range:
               start:
@@ -10672,6 +10684,8 @@ attribute_set:
                 info: Timestamp of the payment date in RFC3339 format (YYYY-MM-DDTHH:mm:ssZ).
                 owner: BPP
                 type: string
+            duration: {}
+            transaction_id: {}
           _description:
             required: false
             usage: ""
@@ -10783,6 +10797,7 @@ attribute_set:
                   info: Payment tag descriptor BAP includes on init; the structure is validated and persisted for use in subsequent steps.
                   owner: BPP
                   type: object
+                short_desc: {}
               value:
                 _description:
                   required: false
@@ -10796,6 +10811,7 @@ attribute_set:
                 info: Container for payment-related tags the BAP specifies during order initialization; stored in the session and reused across subsequent transaction steps.
                 owner: BPP
                 type: object
+            display: {}
         cancellation_terms:
           cancellation_fee:
             percentage:

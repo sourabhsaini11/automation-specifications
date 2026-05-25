@@ -8,57 +8,13 @@ flows:
     description: A borrower searches for available credit products in the marketplace; the lender responds with matching credit offerings and eligibility requirements.
     config:
       $ref: ./UNIFIED CREDIT/master_search.yaml
-  # - type: playground
-  #   id: business_term_loan_with_aa_loan_foreclosure
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: End-to-end personal loan origination enabling borrowers to discover offers, apply through dynamic forms with Account Aggregator-enabled financial verification, and receive loan confirmation.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_AA.yaml
-
-  # - type: playground
-  #   id: business_term_loan_with_aa_missed_emi
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: Business Loan Missed EMI - Term Loan with Offline & Online Journey
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_AA_Missed_EMI.yaml
-
-  # - type: playground
-  #   id: business_term_loan_with_aa_pre_part
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: Business Loan Pre-Part - Term Loan with Offline & Online Journey
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_AA_Pre_Part.yaml        
-
-
-  # - type: playground
-  #   id: business_term_loan_with_offline_online
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: End-to-end personal loan origination from product discovery through multi-stage dynamic application to confirmation, supporting both online and offline channels.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_offline_online_journey.yaml
   - type: playground
     id: business_term_loan_with_offline_online_foreclosure
     usecase: UNIFIED CREDIT
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: End-to-end personal loan origination from product discovery through multi-stage dynamic application to confirmation, supporting both online and offline channels.
+    description: End-to-end business term loan origination from product discovery through multi-stage dynamic credit assessment to confirmation, with integrated support for online and offline channels and loan modification scenarios.
     config:
       $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_offline_online_journey.yaml
   - type: playground
@@ -67,7 +23,7 @@ flows:
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: End-to-end personal loan origination from product discovery through multi-stage dynamic application to confirmation, supporting both online and offline channels.
+    description: Business term loan origination and refinancing for missed-EMI scenarios, supporting multi-stage dynamic qualification and application across both online and offline customer touchpoints.
     config:
       $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_offline_online_missed_emi.yaml
   - type: playground
@@ -76,45 +32,16 @@ flows:
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: End-to-end personal loan origination from product discovery through multi-stage dynamic application to confirmation, supporting both online and offline channels.
+    description: Business term loan origination flow featuring multi-stage adaptive applications through dynamic forms, enabling seamless online and offline customer journeys from product discovery to confirmation. The workflow supports unified pre-approval pathways with flexible, context-aware underwriting stages designed for distributed commerce channels.
     config:
-      $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_offline_online_pre_part.yaml        
-  # - type: playground
-  #   id: business_term_loan_without_aa
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: Comprehensive business term loan application where borrowers complete a multi-stage guided intake process to submit financial documentation and information directly, without Account Aggregator assistance for automated financial data retrieval.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_without_aa.yaml
-  # - type: playground
-  #   id: business_term_loan_with_gst_data
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #     - PERSONAL LOAN
-  #   description: Business term loan application where borrowers search and select loan products, submit GST documentation through multi-stage application forms, and receive approval confirmation with loan updates.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_GST_data.yaml
-  # - type: playground
-  #   id: lamf_credit_line_journey
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #   description: Customer journey for discovering and applying for a credit line through multiple rounds of eligibility verification and document submission, culminating in final confirmation. The flow exercises sequential search, selection, and dynamic form-based application steps for credit assessment and approval.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/LAMF_credit_line_journey_deployment_config.yaml
+      $ref: ./UNIFIED CREDIT/Business_Term_Loan_with_offline_online_pre_part.yaml
   - type: playground
     id: lamf_credit_line_with_mfc_offline_journey
     usecase: UNIFIED CREDIT
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: Offline-enabled credit line origination journey where customers apply for credit products through merchant channels with dynamic form-based verification and confirmation.
+    description: Credit line origination flow enabling customers to apply for credit products through merchant channels with dynamic form-based verification and offline-capable operations. The journey encompasses product discovery, application submission, adaptive KYC verification, and confirmation across both online and offline touchpoints.
     config:
       $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_Offline_Journey.yaml
   - type: playground
@@ -123,36 +50,24 @@ flows:
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: Customer applies for a credit line secured by movable collateral, proceeding through multiple verification stages with dynamic forms before final loan confirmation.
+    description: A borrower secures a credit line against movable collateral, progressing through multiple verification and documentation stages with dynamic forms before final loan confirmation.
     config:
-      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC.yaml 
-
+      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC.yaml
   - type: playground
     id: lamf_credit_line_with_mfc_missed_emi
     usecase: UNIFIED CREDIT
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: LAMF - Credit Line with MFC_Missed_EMI
+    description: A borrower applies for a credit line product to address a missed EMI obligation, navigating through multiple dynamic form submissions and status validations toward final confirmation and transaction settlement.
     config:
-      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_missed_emi.yaml 
-
+      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_missed_emi.yaml
   - type: playground
     id: lamf_credit_line_with_mfc_pre_part
     usecase: UNIFIED CREDIT
     tags:
       - WORKBENCH
       - REPORTABLE
-    description: LAMF - Credit Line with MFC_Missed_EMI
+    description: LAMF credit line enabling borrowers with previous EMI payment gaps to access revolving credit through dynamic multi-step pre-qualification and form-based underwriting.
     config:
-      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_pre_part.yaml             
-
-  # - type: playground
-  #   id: lamf_credit_line_with_rta
-  #   usecase: UNIFIED CREDIT
-  #   tags:
-  #     - WORKBENCH
-  #     - REPORTABLE
-  #   description: Iterative credit line application with real-time assessment, enabling borrowers to qualify through adaptive forms with progressive eligibility validation at each step.
-  #   config:
-  #     $ref: ./UNIFIED CREDIT/lamf_credit_line_with_rta_deployment_config.yaml
+      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_pre_part.yaml
