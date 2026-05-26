@@ -70,7 +70,16 @@ flows:
       - REPORTABLE
     description: Credit line origination flow enabling customers to apply for credit products through merchant channels with dynamic form-based verification and offline-capable operations. The journey encompasses product discovery, application submission, adaptive KYC verification, and confirmation across both online and offline touchpoints.
     config:
-      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_Offline_Journey_Drawdown_foreclosure.yaml            
+      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_Offline_Journey_Drawdown_foreclosure.yaml
+  - type: playground
+    id: lamf_credit_line_with_mfc_drawdown_pre_part
+    usecase: UNIFIED CREDIT
+    tags:
+      - WORKBENCH
+      - REPORTABLE
+    description: Credit line origination flow enabling customers to apply for credit products through merchant channels with dynamic form-based verification and offline-capable operations. The journey encompasses product discovery, application submission, adaptive KYC verification, and confirmation across both online and offline touchpoints.
+    config:
+      $ref: ./UNIFIED CREDIT/LAMF_Credit_Line_with_MFC_Offline_Journey_Drawdown_pre_part.yaml                
   - type: playground
     id: lamf_credit_line_with_mfc_foreclosure
     usecase: UNIFIED CREDIT
