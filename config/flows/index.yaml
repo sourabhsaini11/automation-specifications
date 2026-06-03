@@ -79,7 +79,7 @@ flows:
       - REPORTABLE
     description: LAMF Credit Line with MFC
     config:
-      $ref:  "./LAMF/flows/lamf_credit_line_with_mfc_single_redirection.yaml"
+      $ref:  "./LAMF/lamf_credit_line_with_mfc_single_redirection.yaml"
   - type: playground
     id: lamf_credit_line_with_mfc
     meta:
@@ -90,7 +90,7 @@ flows:
       - REPORTABLE
     description: LAMF Credit Line with MFC
     config:
-      $ref:  "./LAMF/flows/lamf_credit_line_with_mfc.yaml"        
+      $ref:  "./LAMF/lamf_credit_line_with_mfc.yaml"        
  
   - type: playground
     id: lamf_credit_line_with_mfc_offline_journey_drawdown
