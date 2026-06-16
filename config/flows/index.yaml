@@ -6,7 +6,7 @@ flows:
       - REPORTABLE
       - MANDATORY
       - WORKBENCH
-    description: Full booking journey with buyer-initiated cancellation
+    description: End-to-end hotel booking scenario where a buyer discovers accommodations, confirms a reservation, and subsequently initiates full cancellation of the booking.
     config:
       $ref: ./Hotel-Booking-V2/Buyer_Side_Full_Cancellation.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - REPORTABLE
       - MANDATORY
       - WORKBENCH
-    description: Hotel booking flow using TTL-based incremental catalog refresh
+    description: Validates hotel booking transactions with TTL-based incremental catalog refresh to ensure inventory accuracy and consistency across sequential searches. Tests the system's ability to maintain up-to-date availability and pricing information through time-to-live controlled refresh cycles.
     config:
       $ref: ./Hotel-Booking-V2/Hotel_Booking__ttl_based__booking.yaml
   - type: playground
@@ -26,8 +26,7 @@ flows:
       - REPORTABLE
       - MANDATORY
       - WORKBENCH
-    description: Hotel Booking - Seller App Pagination Flow with multiple on_search
-      responses
+    description: A hotel buyer searches for available properties and the seller app responds with paginated results across multiple search responses to efficiently handle large inventory sets.
     config:
       $ref: ./Hotel-Booking-V2/Hotel_Booking_Seller_App_Pagination_Flow.yaml
   - type: playground
@@ -37,7 +36,7 @@ flows:
       - REPORTABLE
       - MANDATORY
       - WORKBENCH
-    description: Full booking journey with merchant-initiated (unsolicited) cancellation
+    description: End-to-end hotel booking transaction from search through booking confirmation, followed by merchant-initiated cancellation of the entire reservation.
     config:
       $ref: ./Hotel-Booking-V2/Merchant_Side_Full_Cancellation.yaml
   - type: playground
@@ -47,8 +46,7 @@ flows:
       - REPORTABLE
       - MANDATORY
       - WORKBENCH
-    description: Complete hotel booking journey from search to status check using
-      GPS coordinates
+    description: Complete hotel booking journey enabling customers to search location-based accommodations, select and confirm reservations, and monitor fulfillment status across the transaction lifecycle.
     config:
       $ref: ./Hotel-Booking-V2/Order_to_Confirm_to_Fulfillment__City_Code_.yaml
   - type: playground
@@ -58,6 +56,6 @@ flows:
       - REPORTABLE
       - OPTIONAL
       - WORKBENCH
-    description: Complete booking journey with update capability
+    description: A complete hotel booking flow that guides guests through searching and selecting properties, confirming reservations, and managing post-confirmation modifications to their bookings.
     config:
       $ref: ./Hotel-Booking-V2/Order_to_Confirm_to_Fulfillment__Updates_in_Booking_.yaml

@@ -1,45 +1,42 @@
 meta:
-  domain: 'ONDC:TRV13'
+  domain: ONDC:TRV13
   version: 2.0.1
   flowId: Hotel Booking (ttl based) booking
   config_version: 0.0.0001
-  description: Hotel Booking (ttl based) - Flow
+  description: Validates hotel booking transactions with TTL-based incremental catalog refresh to ensure inventory accuracy and consistency across sequential searches. Tests the system's ability to maintain up-to-date availability and pricing information through time-to-live controlled refresh cycles.
   use_case_id: Hotel-Booking-V2
   flowName: Hotel Booking (ttl based) booking
 transaction_data:
   transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
-  latest_timestamp: '1970-01-01T00:00:00.000Z'
+  latest_timestamp: 1970-01-01T00:00:00.000Z
   bap_id: bap.example.com
-  bap_uri: 'https://bap.example.com'
+  bap_uri: https://bap.example.com
   bpp_id: bpp.example.com
-  bpp_uri: 'https://bpp.example.com'
+  bpp_uri: https://bpp.example.com
 steps:
   - api: search
     action_id: search_6
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to discover available hotels in a specified city, providing context including transaction identifiers, location details, and protocol metadata to enable BPPs to respond with relevant hotel offerings.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogICAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudCkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBtZXNzYWdlIGludGVudCBpbiBzZWFyY2giIH07CiAgfQogIGNvbnN0IGludGVudCA9IHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQ7CiAgaWYgKCFpbnRlbnQuY2F0ZWdvcnkgfHwgIWludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yIHx8IGludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yLmNvZGUgIT09ICJIT1RFTCIpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgY2F0ZWdvcnkgY29kZSBtdXN0IGJlIEhPVEVMIiB9OwogIH0KICBpZiAoIWludGVudC50YWdzIHx8ICFBcnJheS5pc0FycmF5KGludGVudC50YWdzKSkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiU2VhcmNoIGludGVudCB0YWdzIGFyZSBtaXNzaW5nIiB9OwogIH0KICBjb25zdCBoYXNCYXBUZXJtcyA9IGludGVudC50YWdzLnNvbWUodGFnID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJBUF9URVJNUyIpOwogIGNvbnN0IGhhc0ZpbmRlckZlZXMgPSBpbnRlbnQudGFncy5zb21lKHRhZyA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCVVlFUl9GSU5ERVJfRkVFUyIpOwogIGlmICghaGFzQmFwVGVybXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQkFQX1RFUk1TIiB9OwogIH0KICBpZiAoIWhhc0ZpbmRlckZlZXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQlVZRVJfRklOREVSX0ZFRVMiIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogICAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudCkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBtZXNzYWdlIGludGVudCBpbiBzZWFyY2giIH07CiAgfQogIGNvbnN0IGludGVudCA9IHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQ7CiAgaWYgKCFpbnRlbnQuY2F0ZWdvcnkgfHwgIWludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yIHx8IGludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yLmNvZGUgIT09ICJIT1RFTCIpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgY2F0ZWdvcnkgY29kZSBtdXN0IGJlIEhPVEVMIiB9OwogIH0KICBpZiAoIWludGVudC50YWdzIHx8ICFBcnJheS5pc0FycmF5KGludGVudC50YWdzKSkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiU2VhcmNoIGludGVudCB0YWdzIGFyZSBtaXNzaW5nIiB9OwogIH0KICBjb25zdCBoYXNCYXBUZXJtcyA9IGludGVudC50YWdzLnNvbWUodGFnID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJBUF9URVJNUyIpOwogIGNvbnN0IGhhc0ZpbmRlckZlZXMgPSBpbnRlbnQudGFncy5zb21lKHRhZyA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCVVlFUl9GSU5ERVJfRkVFUyIpOwogIGlmICghaGFzQmFwVGVybXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQkFQX1RFUk1TIiB9OwogIH0KICBpZiAoIWhhc0ZpbmRlckZlZXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQlVZRVJfRklOREVSX0ZFRVMiIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: search
           bap_id: dev-automation.ondc.org
-          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer'
-          domain: 'ONDC:TRV13'
+          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer
+          domain: ONDC:TRV13
           location:
             city:
-              code: 'std:011'
+              code: std:011
             country:
               code: IND
           message_id: b1e775e0-496f-44ba-a508-00b2253e69c7
-          timestamp: '2026-03-12T12:26:59.883Z'
+          timestamp: 2026-03-12T12:26:59.883Z
           transaction_id: 8af51fc6-5c0a-4e44-b0a2-b3c967d9e983
           ttl: PT30S
           version: 2.0.1
@@ -54,20 +51,19 @@ steps:
                 list:
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://static_terms.com'
+                    value: https://static_terms.com
                   - descriptor:
                       code: STATIC_TERMS_NEW
-                    value: >-
-                      https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                    value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                   - descriptor:
                       code: EFFECTIVE_DATE
-                    value: '2024-01-01T00:00:00.000Z'
+                    value: 2024-01-01T00:00:00.000Z
               - descriptor:
                   code: BUYER_FINDER_FEES
                 list:
                   - descriptor:
                       code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: '3'
+                    value: "3"
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -79,11 +75,11 @@ steps:
         city_code: $.context.location.city.code
         message_id: $.context.message_id
         transaction_id: $.context.transaction_id
-        start_location: '$.message.intent.fulfillment.stops[?(@.type==''START'')].location.gps'
-        end_location: '$.message.intent.fulfillment.stops[?(@.type==''END'')].location.gps'
+        start_location: $.message.intent.fulfillment.stops[?(@.type=='START')].location.gps
+        end_location: $.message.intent.fulfillment.stops[?(@.type=='END')].location.gps
         collected_by: $.message.intent.payment.collected_by
         fulfillment: $.message.intent.fulfillment
-        stops: '$.message.intent.fulfillment.stops[*]'
+        stops: $.message.intent.fulfillment.stops[*]
         vehicle_category: $.message.intent.fulfillment.vehicle.category
         search_6_tags: $.message.intent.tags
         search_6_descriptor_code: $.message.intent.category.descriptor.code
@@ -91,7 +87,7 @@ steps:
       inputs:
         id: ExampleInputId
         jsonSchema:
-          $schema: 'http://json-schema.org/draft-07/schema#'
+          $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
             city_code:
@@ -106,20 +102,20 @@ steps:
       - name: example for search
         payload:
           context:
-            domain: 'ONDC:TRV13'
+            domain: ONDC:TRV13
             action: search
-            timestamp: '2026-05-12T12:59:52.887Z'
+            timestamp: 2026-05-12T12:59:52.887Z
             transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
             message_id: 3d3b0313-e4ae-499a-b085-d74aeb468985
             bap_id: bap.example.com
-            bap_uri: 'https://bap.example.com'
+            bap_uri: https://bap.example.com
             ttl: PT30S
             version: 2.0.1
             location:
               country:
                 code: IND
               city:
-                code: 'std:044'
+                code: std:044
           message:
             intent:
               category:
@@ -131,20 +127,19 @@ steps:
                   list:
                     - descriptor:
                         code: STATIC_TERMS
-                      value: 'https://static_terms.com'
+                      value: https://static_terms.com
                     - descriptor:
                         code: STATIC_TERMS_NEW
-                      value: >-
-                        https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                      value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                     - descriptor:
                         code: EFFECTIVE_DATE
-                      value: '2024-01-01T00:00:00.000Z'
+                      value: 2024-01-01T00:00:00.000Z
                 - descriptor:
                     code: BUYER_FINDER_FEES
                   list:
                     - descriptor:
                         code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: '3'
+                      value: "3"
         type: request
         description: please add relevant description
   - api: on_search
@@ -152,29 +147,26 @@ steps:
     owner: BPP
     responseFor: search_6
     unsolicited: false
-    description: please add relevant description
+    description: The BPP responds to the BAP's search request with its hotel catalog, including available properties and room inventory filtered by location and travel dates. The on_search response establishes the transaction state and presents accommodation options for customer selection.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogIGNvbnN0IGN1cnJlbnRUaW1lc3RhbXAgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgY29uc3QgZW5kVGltZXN0YW1wID0gbmV3IERhdGUoRGF0ZS5ub3coKSArIDIgKiA2MCAqIDYwICogMTAwMCkudG9JU09TdHJpbmcoKTsKCiAgaWYgKGRlZmF1bHRQYXlsb2FkPy5tZXNzYWdlPy5jYXRhbG9nPy5wcm92aWRlcnM/LlswXT8udGltZSkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLnByb3ZpZGVyc1swXS50aW1lLnRpbWVzdGFtcCA9IGN1cnJlbnRUaW1lc3RhbXA7CiAgfQoKICBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8uY2F0YWxvZz8ucHJvdmlkZXJzPy5mb3JFYWNoKChwcm92aWRlcikgPT4gewogICAgcHJvdmlkZXIuaXRlbXM/LmZvckVhY2goKGl0ZW0pID0+IHsKICAgICAgaWYgKGl0ZW0udGltZSkgewogICAgICAgIGl0ZW0udGltZS50aW1lc3RhbXAgPSBjdXJyZW50VGltZXN0YW1wOwogICAgICAgIGlmIChpdGVtLnRpbWUucmFuZ2UpIHsKICAgICAgICAgIGl0ZW0udGltZS5yYW5nZS5zdGFydCA9IGN1cnJlbnRUaW1lc3RhbXA7CiAgICAgICAgICBpdGVtLnRpbWUucmFuZ2UuZW5kID0gZW5kVGltZXN0YW1wOwogICAgICAgIH0KICAgICAgfQogICAgfSk7CiAgfSk7CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
-      validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3NpbmcgY2F0YWxvZyBpbiBvbl9zZWFyY2giIH07CiAgfQogIGNvbnN0IGNhdGFsb2cgPSB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZzsKICBpZiAoIWNhdGFsb2cucHJvdmlkZXJzIHx8ICFBcnJheS5pc0FycmF5KGNhdGFsb2cucHJvdmlkZXJzKSB8fCBjYXRhbG9nLnByb3ZpZGVycy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkNhdGFsb2cgcHJvdmlkZXJzIGxpc3QgaXMgbWlzc2luZyBvciBlbXB0eSIgfTsKICB9CiAgZm9yIChjb25zdCBwcm92aWRlciBvZiBjYXRhbG9nLnByb3ZpZGVycykgewogICAgaWYgKCFwcm92aWRlci5pZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciBpcyBtaXNzaW5nIElEIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5kZXNjcmlwdG9yIHx8ICFwcm92aWRlci5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBpcyBtaXNzaW5nIGRlc2NyaXB0b3IgbmFtZSIgfTsKICAgIH0KICAgIGlmICghcHJvdmlkZXIubG9jYXRpb25zIHx8ICFBcnJheS5pc0FycmF5KHByb3ZpZGVyLmxvY2F0aW9ucykgfHwgcHJvdmlkZXIubG9jYXRpb25zLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgbG9jYXRpb25zIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5wYXltZW50cyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5wYXltZW50cykgfHwgcHJvdmlkZXIucGF5bWVudHMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBvZmZlciBwYXltZW50IG9wdGlvbnMiIH07CiAgICB9CiAgICBjb25zdCB2YWxpZFBheW1lbnRUeXBlcyA9IFsiUFJFLU9SREVSIiwgIk9OLUZVTEZJTExNRU5UIiwgIlBBUlQtUEFZTUVOVCIsICJQT1NULUZVTEZJTExNRU5UIl07CiAgICBmb3IgKGNvbnN0IHBheW1lbnQgb2YgcHJvdmlkZXIucGF5bWVudHMpIHsKICAgICAgaWYgKCF2YWxpZFBheW1lbnRUeXBlcy5pbmNsdWRlcyhwYXltZW50LnR5cGUpKSB7CiAgICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBoYXMgaW52YWxpZCBwYXltZW50IHR5cGU6ICIgKyBwYXltZW50LnR5cGUgfTsKICAgICAgfQogICAgfQogICAgaWYgKCFwcm92aWRlci5pdGVtcyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5pdGVtcykgfHwgcHJvdmlkZXIuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBoYXZlIGl0ZW1zIiB9OwogICAgfQogICAgZm9yIChjb25zdCBpdGVtIG9mIHByb3ZpZGVyLml0ZW1zKSB7CiAgICAgIGlmICghaXRlbS5pZCkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gaXMgbWlzc2luZyBJRCBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgfTsKICAgICAgfQogICAgICBpZiAoIWl0ZW0uZGVzY3JpcHRvciB8fCAhaXRlbS5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJJdGVtICIgKyBpdGVtLmlkICsgIiBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgZGVzY3JpcHRvciBuYW1lIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5wcmljZSB8fCAhaXRlbS5wcmljZS52YWx1ZSB8fCAhaXRlbS5wcmljZS5jdXJyZW5jeSkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBwcmljZSBkZXRhaWxzIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5xdWFudGl0eSB8fCAhaXRlbS5xdWFudGl0eS5hdmFpbGFibGUgfHwgdHlwZW9mIGl0ZW0ucXVhbnRpdHkuYXZhaWxhYmxlLmNvdW50ID09PSAndW5kZWZpbmVkJykgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBhdmFpbGFibGUgcXVhbnRpdHkgY291bnQiIH07CiAgICAgIH0KICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
-      requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhIHx8ICFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRyYW5zYWN0aW9uSWQgZnJvbSBzZWFyY2ggc3RlcCIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogIGNvbnN0IGN1cnJlbnRUaW1lc3RhbXAgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgY29uc3QgZW5kVGltZXN0YW1wID0gbmV3IERhdGUoRGF0ZS5ub3coKSArIDIgKiA2MCAqIDYwICogMTAwMCkudG9JU09TdHJpbmcoKTsKCiAgaWYgKGRlZmF1bHRQYXlsb2FkPy5tZXNzYWdlPy5jYXRhbG9nPy5wcm92aWRlcnM/LlswXT8udGltZSkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLnByb3ZpZGVyc1swXS50aW1lLnRpbWVzdGFtcCA9IGN1cnJlbnRUaW1lc3RhbXA7CiAgfQoKICBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8uY2F0YWxvZz8ucHJvdmlkZXJzPy5mb3JFYWNoKChwcm92aWRlcikgPT4gewogICAgcHJvdmlkZXIuaXRlbXM/LmZvckVhY2goKGl0ZW0pID0+IHsKICAgICAgaWYgKGl0ZW0udGltZSkgewogICAgICAgIGl0ZW0udGltZS50aW1lc3RhbXAgPSBjdXJyZW50VGltZXN0YW1wOwogICAgICAgIGlmIChpdGVtLnRpbWUucmFuZ2UpIHsKICAgICAgICAgIGl0ZW0udGltZS5yYW5nZS5zdGFydCA9IGN1cnJlbnRUaW1lc3RhbXA7CiAgICAgICAgICBpdGVtLnRpbWUucmFuZ2UuZW5kID0gZW5kVGltZXN0YW1wOwogICAgICAgIH0KICAgICAgfQogICAgfSk7CiAgfSk7CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3NpbmcgY2F0YWxvZyBpbiBvbl9zZWFyY2giIH07CiAgfQogIGNvbnN0IGNhdGFsb2cgPSB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZzsKICBpZiAoIWNhdGFsb2cucHJvdmlkZXJzIHx8ICFBcnJheS5pc0FycmF5KGNhdGFsb2cucHJvdmlkZXJzKSB8fCBjYXRhbG9nLnByb3ZpZGVycy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkNhdGFsb2cgcHJvdmlkZXJzIGxpc3QgaXMgbWlzc2luZyBvciBlbXB0eSIgfTsKICB9CiAgZm9yIChjb25zdCBwcm92aWRlciBvZiBjYXRhbG9nLnByb3ZpZGVycykgewogICAgaWYgKCFwcm92aWRlci5pZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciBpcyBtaXNzaW5nIElEIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5kZXNjcmlwdG9yIHx8ICFwcm92aWRlci5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBpcyBtaXNzaW5nIGRlc2NyaXB0b3IgbmFtZSIgfTsKICAgIH0KICAgIGlmICghcHJvdmlkZXIubG9jYXRpb25zIHx8ICFBcnJheS5pc0FycmF5KHByb3ZpZGVyLmxvY2F0aW9ucykgfHwgcHJvdmlkZXIubG9jYXRpb25zLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgbG9jYXRpb25zIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5wYXltZW50cyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5wYXltZW50cykgfHwgcHJvdmlkZXIucGF5bWVudHMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBvZmZlciBwYXltZW50IG9wdGlvbnMiIH07CiAgICB9CiAgICBjb25zdCB2YWxpZFBheW1lbnRUeXBlcyA9IFsiUFJFLU9SREVSIiwgIk9OLUZVTEZJTExNRU5UIiwgIlBBUlQtUEFZTUVOVCIsICJQT1NULUZVTEZJTExNRU5UIl07CiAgICBmb3IgKGNvbnN0IHBheW1lbnQgb2YgcHJvdmlkZXIucGF5bWVudHMpIHsKICAgICAgaWYgKCF2YWxpZFBheW1lbnRUeXBlcy5pbmNsdWRlcyhwYXltZW50LnR5cGUpKSB7CiAgICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBoYXMgaW52YWxpZCBwYXltZW50IHR5cGU6ICIgKyBwYXltZW50LnR5cGUgfTsKICAgICAgfQogICAgfQogICAgaWYgKCFwcm92aWRlci5pdGVtcyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5pdGVtcykgfHwgcHJvdmlkZXIuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBoYXZlIGl0ZW1zIiB9OwogICAgfQogICAgZm9yIChjb25zdCBpdGVtIG9mIHByb3ZpZGVyLml0ZW1zKSB7CiAgICAgIGlmICghaXRlbS5pZCkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gaXMgbWlzc2luZyBJRCBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgfTsKICAgICAgfQogICAgICBpZiAoIWl0ZW0uZGVzY3JpcHRvciB8fCAhaXRlbS5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJJdGVtICIgKyBpdGVtLmlkICsgIiBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgZGVzY3JpcHRvciBuYW1lIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5wcmljZSB8fCAhaXRlbS5wcmljZS52YWx1ZSB8fCAhaXRlbS5wcmljZS5jdXJyZW5jeSkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBwcmljZSBkZXRhaWxzIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5xdWFudGl0eSB8fCAhaXRlbS5xdWFudGl0eS5hdmFpbGFibGUgfHwgdHlwZW9mIGl0ZW0ucXVhbnRpdHkuYXZhaWxhYmxlLmNvdW50ID09PSAndW5kZWZpbmVkJykgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBhdmFpbGFibGUgcXVhbnRpdHkgY291bnQiIH07CiAgICAgIH0KICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhIHx8ICFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRyYW5zYWN0aW9uSWQgZnJvbSBzZWFyY2ggc3RlcCIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_search
           bap_id: dev-automation.ondc.org
-          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer'
+          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer
           bpp_id: dev-automation.ondc.org
-          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/seller'
-          domain: 'ONDC:TRV13'
+          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/seller
+          domain: ONDC:TRV13
           location:
             city:
-              code: 'std:011'
+              code: std:011
             country:
               code: IND
           message_id: b1e775e0-496f-44ba-a508-00b2253e69c7
-          timestamp: '2026-03-12T12:27:00.129Z'
+          timestamp: 2026-03-12T12:27:00.129Z
           transaction_id: 8af51fc6-5c0a-4e44-b0a2-b3c967d9e983
           ttl: PT30S
           version: 2.0.1
@@ -184,35 +176,32 @@ steps:
               name: ONDC Hotel Groups
               code: BPP Code
               short_desc: Hotel BPP ONDC
-              long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+              long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
               images:
-                - url: 'https://remote-image.ondc.hotelbpp.com'
+                - url: https://remote-image.ondc.hotelbpp.com
             providers:
               - id: P1
                 time:
                   label: ENABLE
-                  timestamp: '2023-12-20T05:28:04.300Z'
+                  timestamp: 2023-12-20T05:28:04.300Z
                 descriptor:
                   name: ONDC Hotel Provider ABC
                   code: Hotel
                   short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                  long_desc: >-
-                    Hotel ABC ONDC Provider is equipped with a variety of
-                    on-site amenities to enhance the overall quality and
-                    enjoyment of your experience
+                  long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                   images:
-                    - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                    - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                    - url: https://remote-image-ABC.ondc.hotelbpp.com
+                    - url: https://remote-image-ABC-2.ondc.hotelbpp.com
                 locations:
                   - id: L1
-                    gps: '12.889849, 78.006663'
+                    gps: 12.889849, 78.006663
                     address: M.Hosahalli
                     city:
                       name: Bangalore
                     state:
                       name: Karnataka
-                    area_code: '563139'
-                    rating: '5'
+                    area_code: "563139"
+                    rating: "5"
                 categories:
                   - id: dlx-1234
                     descriptor:
@@ -231,20 +220,20 @@ steps:
                   - id: Accommodation-1
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                     descriptor:
                       name: Deluxe Room
                       code: DELUXE
                       additional_desc:
-                        url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '2000.00'
-                      maximum_value: '3000.00'
+                      value: "2000.00"
+                      maximum_value: "3000.00"
                     quantity:
                       available:
                         count: 12
@@ -265,41 +254,39 @@ steps:
                           short_desc: Accommodation with breakfast included
                         price:
                           currency: INR
-                          value: '200.00'
-                          maximum_value: '300.00'
+                          value: "200.00"
+                          maximum_value: "300.00"
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '500.00'
-                          maximum_value: '700.00'
+                          value: "500.00"
+                          maximum_value: "700.00"
                       - id: extra-bed-child
                         descriptor:
                           name: child bed
                           short_desc: Accomodation with extra child bed
                         price:
                           currency: INR
-                          value: '200.00'
-                          maximum_value: '300.00'
+                          value: "200.00"
+                          maximum_value: "300.00"
                       - id: extra-bed-adult
                         descriptor:
                           name: adult bed
                           short_desc: Accomodation with extra adult bed
                         price:
                           currency: INR
-                          value: '300.00'
-                          maximum_value: '500.00'
+                          value: "300.00"
+                          maximum_value: "500.00"
                     cancellation_terms:
                       - cancellation_fee:
-                          percentage: '10'
+                          percentage: "10"
                         cancel_by:
                           range:
-                            start: '2023-12-20T05:28:04.300Z'
-                            end: '2023-12-22T05:28:04.300Z'
+                            start: 2023-12-20T05:28:04.300Z
+                            end: 2023-12-22T05:28:04.300Z
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -332,24 +319,24 @@ steps:
                   - id: Accommodation-2
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                       duration: PT2H
                       range:
-                        start: '2023-12-20T05:28:04.300Z'
-                        end: '2023-12-20T06:28:04.300Z'
+                        start: 2023-12-20T05:28:04.300Z
+                        end: 2023-12-20T06:28:04.300Z
                     descriptor:
                       name: Family Suite
                       code: SUITE
                       additional_desc:
-                        url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '7000.00'
-                      maximum_value: '8000.00'
+                      value: "7000.00"
+                      maximum_value: "8000.00"
                     quantity:
                       available:
                         count: 2
@@ -365,22 +352,20 @@ steps:
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '3000.00'
-                          maximum_value: '4000.00'
+                          value: "3000.00"
+                          maximum_value: "4000.00"
                     cancellation_terms:
                       - cancellation_fee:
                           amount:
                             currency: INR
-                            value: '100'
+                            value: "100"
                         cancel_by:
                           range:
-                            start: '2023-12-20T05:28:04.300Z'
-                            end: '2023-12-22T05:28:04.300Z'
+                            start: 2023-12-20T05:28:04.300Z
+                            end: 2023-12-22T05:28:04.300Z
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -413,24 +398,24 @@ steps:
                   - id: Accommodation-3
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                       duration: PT2H
                       range:
-                        start: '2023-12-20T05:28:04.300Z'
-                        end: '2023-12-20T06:28:04.300Z'
+                        start: 2023-12-20T05:28:04.300Z
+                        end: 2023-12-20T06:28:04.300Z
                     descriptor:
                       name: Family Suite
                       code: SUITE
                       additional_desc:
-                        url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '6000.00'
-                      maximum_value: '8000.00'
+                      value: "6000.00"
+                      maximum_value: "8000.00"
                     quantity:
                       available:
                         count: 2
@@ -446,17 +431,15 @@ steps:
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '3000.00'
-                          maximum_value: '4000.00'
+                          value: "3000.00"
+                          maximum_value: "4000.00"
                     cancellation_terms:
                       - external_ref:
                           mimetype: application/json
-                          url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                          url: https://remote-terms-ABC.ondc.hotelbpp.com
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -524,15 +507,14 @@ steps:
         city_code: $.context.location.city.code
         message_id: $.context.message_id
         transaction_id: $.context.transaction_id
-        start_location: '$.message.intent.fulfillment.stops[?(@.type==''START'')].location.gps'
-        intermediate_location: >-
-          $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
-        end_location: '$.message.intent.fulfillment.stops[?(@.type==''END'')].location.gps'
+        start_location: $.message.intent.fulfillment.stops[?(@.type=='START')].location.gps
+        intermediate_location: $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
+        end_location: $.message.intent.fulfillment.stops[?(@.type=='END')].location.gps
         payment_collected_by: $.message.intent.payment.collected_by
-        stops: '$.message.intent.fulfillment.stops[*]'
+        stops: $.message.intent.fulfillment.stops[*]
         collected_by: $.message.intent.payment.collected_by
-        on_search_1_provider_id: '$.message.catalog.providers[*].id'
-        on_search_1_items: '$.message.catalog.providers[*].items'
+        on_search_1_provider_id: $.message.catalog.providers[*].id
+        on_search_1_items: $.message.catalog.providers[*].items
         bpp_uri: $.context.bpp_uri
         on_search_6_catalog: $.message.catalog
       inputs: {}
@@ -540,57 +522,54 @@ steps:
       - name: example for on_search
         payload:
           context:
-            domain: 'ONDC:TRV13'
+            domain: ONDC:TRV13
             action: on_search
-            timestamp: '2026-05-12T12:59:52.896Z'
+            timestamp: 2026-05-12T12:59:52.896Z
             transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
             message_id: 3d3b0313-e4ae-499a-b085-d74aeb468985
             bap_id: bap.example.com
-            bap_uri: 'https://bap.example.com'
+            bap_uri: https://bap.example.com
             ttl: PT30S
             bpp_id: bpp.example.com
-            bpp_uri: 'https://bpp.example.com'
+            bpp_uri: https://bpp.example.com
             version: 2.0.1
             location:
               country:
                 code: IND
               city:
-                code: 'std:080'
+                code: std:080
           message:
             catalog:
               descriptor:
                 name: ONDC Hotel Groups
                 code: BPP Code
                 short_desc: Hotel BPP ONDC
-                long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+                long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
                 images:
-                  - url: 'https://remote-image.ondc.hotelbpp.com'
+                  - url: https://remote-image.ondc.hotelbpp.com
               providers:
                 - id: P1
                   time:
                     label: ENABLE
-                    timestamp: '2026-05-12T12:59:52.898Z'
+                    timestamp: 2026-05-12T12:59:52.898Z
                   descriptor:
                     name: ONDC Hotel Provider ABC
                     code: Hotel
                     short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                    long_desc: >-
-                      Hotel ABC ONDC Provider is equipped with a variety of
-                      on-site amenities to enhance the overall quality and
-                      enjoyment of your experience
+                    long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                     images:
-                      - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-ABC.ondc.hotelbpp.com
+                      - url: https://remote-image-ABC-2.ondc.hotelbpp.com
                   locations:
                     - id: L1
-                      gps: '12.889849, 78.006663'
+                      gps: 12.889849, 78.006663
                       address: M.Hosahalli
                       city:
                         name: Bangalore
                       state:
                         name: Karnataka
-                      area_code: '563139'
-                      rating: '5'
+                      area_code: "563139"
+                      rating: "5"
                   categories:
                     - id: dlx-1234
                       descriptor:
@@ -609,20 +588,20 @@ steps:
                     - id: Accommodation-1
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                       descriptor:
                         name: Deluxe Room
                         code: DELUXE
                         additional_desc:
-                          url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '2000.00'
-                        maximum_value: '3000.00'
+                        value: "2000.00"
+                        maximum_value: "3000.00"
                       quantity:
                         available:
                           count: 12
@@ -643,41 +622,39 @@ steps:
                             short_desc: Accommodation with breakfast included
                           price:
                             currency: INR
-                            value: '200.00'
-                            maximum_value: '300.00'
+                            value: "200.00"
+                            maximum_value: "300.00"
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '500.00'
-                            maximum_value: '700.00'
+                            value: "500.00"
+                            maximum_value: "700.00"
                         - id: extra-bed-child
                           descriptor:
                             name: child bed
                             short_desc: Accomodation with extra child bed
                           price:
                             currency: INR
-                            value: '200.00'
-                            maximum_value: '300.00'
+                            value: "200.00"
+                            maximum_value: "300.00"
                         - id: extra-bed-adult
                           descriptor:
                             name: adult bed
                             short_desc: Accomodation with extra adult bed
                           price:
                             currency: INR
-                            value: '300.00'
-                            maximum_value: '500.00'
+                            value: "300.00"
+                            maximum_value: "500.00"
                       cancellation_terms:
                         - cancellation_fee:
-                            percentage: '10'
+                            percentage: "10"
                           cancel_by:
                             range:
-                              start: '2023-12-20T05:28:04.300Z'
-                              end: '2023-12-22T05:28:04.300Z'
+                              start: 2023-12-20T05:28:04.300Z
+                              end: 2023-12-22T05:28:04.300Z
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -710,24 +687,24 @@ steps:
                     - id: Accommodation-2
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                         duration: PT2H
                         range:
-                          start: '2026-05-12T12:59:52.898Z'
-                          end: '2026-05-12T14:59:52.898Z'
+                          start: 2026-05-12T12:59:52.898Z
+                          end: 2026-05-12T14:59:52.898Z
                       descriptor:
                         name: Family Suite
                         code: SUITE
                         additional_desc:
-                          url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '7000.00'
-                        maximum_value: '8000.00'
+                        value: "7000.00"
+                        maximum_value: "8000.00"
                       quantity:
                         available:
                           count: 2
@@ -743,22 +720,20 @@ steps:
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '3000.00'
-                            maximum_value: '4000.00'
+                            value: "3000.00"
+                            maximum_value: "4000.00"
                       cancellation_terms:
                         - cancellation_fee:
                             amount:
                               currency: INR
-                              value: '100'
+                              value: "100"
                           cancel_by:
                             range:
-                              start: '2023-12-20T05:28:04.300Z'
-                              end: '2023-12-22T05:28:04.300Z'
+                              start: 2023-12-20T05:28:04.300Z
+                              end: 2023-12-22T05:28:04.300Z
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -791,24 +766,24 @@ steps:
                     - id: Accommodation-3
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                         duration: PT2H
                         range:
-                          start: '2026-05-12T12:59:52.898Z'
-                          end: '2026-05-12T14:59:52.898Z'
+                          start: 2026-05-12T12:59:52.898Z
+                          end: 2026-05-12T14:59:52.898Z
                       descriptor:
                         name: Family Suite
                         code: SUITE
                         additional_desc:
-                          url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '6000.00'
-                        maximum_value: '8000.00'
+                        value: "6000.00"
+                        maximum_value: "8000.00"
                       quantity:
                         available:
                           count: 2
@@ -824,17 +799,15 @@ steps:
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '3000.00'
-                            maximum_value: '4000.00'
+                            value: "3000.00"
+                            maximum_value: "4000.00"
                       cancellation_terms:
                         - external_ref:
                             mimetype: application/json
-                            url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                            url: https://remote-terms-ABC.ondc.hotelbpp.com
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -898,27 +871,24 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to discover available hotel accommodations for the specified location and travel parameters. This transmits the transaction context and booking requirements to providers, enabling them to respond with matching offerings.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogICAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LnR0bCA9ICJQN0QiOwogIGNvbnN0IGN1cnJlbnREYXRlID0gbmV3IERhdGUoKTsKICBjb25zdCBmdXR1cmVEYXRlID0gbmV3IERhdGUoY3VycmVudERhdGUpOwogIGZ1dHVyZURhdGUuc2V0RGF0ZShjdXJyZW50RGF0ZS5nZXREYXRlKCkgKyA1KTsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5jYXRlZ29yeSA9CiAgICBzZXNzaW9uRGF0YT8uc2VhcmNoXzZfaW50ZW50X2NhdGVnb3J5WzBdOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3MgPSBzZXNzaW9uRGF0YS5zZWFyY2hfNl90YWdzPy5mbGF0KCkgPz8gW107CgogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmNhdGVnb3J5LnRpbWUgPSB7CiAgICBsYWJlbDogIkFWQUlMQUJMRSIsCiAgICByYW5nZTogewogICAgICBzdGFydDogY3VycmVudERhdGUudG9JU09TdHJpbmcoKSwKICAgICAgZW5kOiBmdXR1cmVEYXRlLnRvSVNPU3RyaW5nKCksCiAgICB9LAogIH07CmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmNhdGVnb3J5LnRpbWUucmFuZ2Uuc3RhcnQgPSAKICBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LnN0YXJ0X3RpbWUKICAgID8gbmV3IERhdGUoc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuc3RhcnRfdGltZSkudG9JU09TdHJpbmcoKQogICAgOiB1bmRlZmluZWQ7ICAKZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuY2F0ZWdvcnkudGltZS5yYW5nZS5lbmQgPSAKICBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LmVuZF90aW1lCiAgICA/IG5ldyBEYXRlKHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmVuZF90aW1lKS50b0lTT1N0cmluZygpCiAgICA6IHVuZGVmaW5lZDsgIAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQgPSB7CiAgICBzdG9wczogWwogICAgICB7CiAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgIGFyZWFfY29kZTogIjU2MDEwMCIsCiAgICAgICAgICBncHM6ICIxMi44MjczNTksIDc3LjY5MTU3MCIsCiAgICAgICAgfSwKICAgICAgICB0eXBlOiAiRU5EIiwKICAgICAgfSwKICAgIF0sCiAgfTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudCkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBtZXNzYWdlIGludGVudCBpbiBzZWFyY2giIH07CiAgfQogIGNvbnN0IGludGVudCA9IHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQ7CiAgaWYgKCFpbnRlbnQuY2F0ZWdvcnkgfHwgIWludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yIHx8IGludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yLmNvZGUgIT09ICJIT1RFTCIpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgY2F0ZWdvcnkgY29kZSBtdXN0IGJlIEhPVEVMIiB9OwogIH0KICBpZiAoIWludGVudC50YWdzIHx8ICFBcnJheS5pc0FycmF5KGludGVudC50YWdzKSkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiU2VhcmNoIGludGVudCB0YWdzIGFyZSBtaXNzaW5nIiB9OwogIH0KICBjb25zdCBoYXNCYXBUZXJtcyA9IGludGVudC50YWdzLnNvbWUodGFnID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJBUF9URVJNUyIpOwogIGNvbnN0IGhhc0ZpbmRlckZlZXMgPSBpbnRlbnQudGFncy5zb21lKHRhZyA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCVVlFUl9GSU5ERVJfRkVFUyIpOwogIGlmICghaGFzQmFwVGVybXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQkFQX1RFUk1TIiB9OwogIH0KICBpZiAoIWhhc0ZpbmRlckZlZXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQlVZRVJfRklOREVSX0ZFRVMiIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogICAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LnR0bCA9ICJQN0QiOwogIGNvbnN0IGN1cnJlbnREYXRlID0gbmV3IERhdGUoKTsKICBjb25zdCBmdXR1cmVEYXRlID0gbmV3IERhdGUoY3VycmVudERhdGUpOwogIGZ1dHVyZURhdGUuc2V0RGF0ZShjdXJyZW50RGF0ZS5nZXREYXRlKCkgKyA1KTsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5jYXRlZ29yeSA9CiAgICBzZXNzaW9uRGF0YT8uc2VhcmNoXzZfaW50ZW50X2NhdGVnb3J5WzBdOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3MgPSBzZXNzaW9uRGF0YS5zZWFyY2hfNl90YWdzPy5mbGF0KCkgPz8gW107CgogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmNhdGVnb3J5LnRpbWUgPSB7CiAgICBsYWJlbDogIkFWQUlMQUJMRSIsCiAgICByYW5nZTogewogICAgICBzdGFydDogY3VycmVudERhdGUudG9JU09TdHJpbmcoKSwKICAgICAgZW5kOiBmdXR1cmVEYXRlLnRvSVNPU3RyaW5nKCksCiAgICB9LAogIH07CmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmNhdGVnb3J5LnRpbWUucmFuZ2Uuc3RhcnQgPSAKICBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LnN0YXJ0X3RpbWUKICAgID8gbmV3IERhdGUoc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuc3RhcnRfdGltZSkudG9JU09TdHJpbmcoKQogICAgOiB1bmRlZmluZWQ7ICAKZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuY2F0ZWdvcnkudGltZS5yYW5nZS5lbmQgPSAKICBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LmVuZF90aW1lCiAgICA/IG5ldyBEYXRlKHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmVuZF90aW1lKS50b0lTT1N0cmluZygpCiAgICA6IHVuZGVmaW5lZDsgIAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQgPSB7CiAgICBzdG9wczogWwogICAgICB7CiAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgIGFyZWFfY29kZTogIjU2MDEwMCIsCiAgICAgICAgICBncHM6ICIxMi44MjczNTksIDc3LjY5MTU3MCIsCiAgICAgICAgfSwKICAgICAgICB0eXBlOiAiRU5EIiwKICAgICAgfSwKICAgIF0sCiAgfTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudCkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBtZXNzYWdlIGludGVudCBpbiBzZWFyY2giIH07CiAgfQogIGNvbnN0IGludGVudCA9IHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQ7CiAgaWYgKCFpbnRlbnQuY2F0ZWdvcnkgfHwgIWludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yIHx8IGludGVudC5jYXRlZ29yeS5kZXNjcmlwdG9yLmNvZGUgIT09ICJIT1RFTCIpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgY2F0ZWdvcnkgY29kZSBtdXN0IGJlIEhPVEVMIiB9OwogIH0KICBpZiAoIWludGVudC50YWdzIHx8ICFBcnJheS5pc0FycmF5KGludGVudC50YWdzKSkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiU2VhcmNoIGludGVudCB0YWdzIGFyZSBtaXNzaW5nIiB9OwogIH0KICBjb25zdCBoYXNCYXBUZXJtcyA9IGludGVudC50YWdzLnNvbWUodGFnID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJBUF9URVJNUyIpOwogIGNvbnN0IGhhc0ZpbmRlckZlZXMgPSBpbnRlbnQudGFncy5zb21lKHRhZyA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCVVlFUl9GSU5ERVJfRkVFUyIpOwogIGlmICghaGFzQmFwVGVybXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQkFQX1RFUk1TIiB9OwogIH0KICBpZiAoIWhhc0ZpbmRlckZlZXMpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlNlYXJjaCBpbnRlbnQgdGFncyBtdXN0IGluY2x1ZGUgQlVZRVJfRklOREVSX0ZFRVMiIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: search
           bap_id: dev-automation.ondc.org
-          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer'
-          domain: 'ONDC:TRV13'
+          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer
+          domain: ONDC:TRV13
           location:
             city:
-              code: 'std:011'
+              code: std:011
             country:
               code: IND
           message_id: b1e775e0-496f-44ba-a508-00b2253e69c7
-          timestamp: '2026-03-12T12:26:59.883Z'
+          timestamp: 2026-03-12T12:26:59.883Z
           transaction_id: 8af51fc6-5c0a-4e44-b0a2-b3c967d9e983
           ttl: PT30S
           version: 2.0.1
@@ -930,34 +900,33 @@ steps:
               time:
                 label: AVAILABLE
                 range:
-                  start: '2024-01-10T00:00:00.000Z'
-                  end: '2024-01-15T00:00:00.000Z'
+                  start: 2024-01-10T00:00:00.000Z
+                  end: 2024-01-15T00:00:00.000Z
             fulfillment:
               stops:
                 - type: END
                   location:
-                    gps: '12.827359, 77.691570'
-                    area_code: '560100'
+                    gps: 12.827359, 77.691570
+                    area_code: "560100"
             tags:
               - descriptor:
                   code: BAP_TERMS
                 list:
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://static_terms.com'
+                    value: https://static_terms.com
                   - descriptor:
                       code: STATIC_TERMS_NEW
-                    value: >-
-                      https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                    value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                   - descriptor:
                       code: EFFECTIVE_DATE
-                    value: '2024-01-01T00:00:00.000Z'
+                    value: 2024-01-01T00:00:00.000Z
               - descriptor:
                   code: BUYER_FINDER_FEES
                 list:
                   - descriptor:
                       code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: '3'
+                    value: "3"
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -969,12 +938,11 @@ steps:
         city_code: $.context.location.city.code
         message_id: $.context.message_id
         transaction_id: $.context.transaction_id
-        start_location: '$.message.intent.fulfillment.stops[?(@.type==''START'')].location.gps'
-        intermediate_location: >-
-          $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
-        end_location: '$.message.intent.fulfillment.stops[?(@.type==''END'')].location.gps'
+        start_location: $.message.intent.fulfillment.stops[?(@.type=='START')].location.gps
+        intermediate_location: $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
+        end_location: $.message.intent.fulfillment.stops[?(@.type=='END')].location.gps
         payment_collected_by: $.message.intent.payment.collected_by
-        stops: '$.message.intent.fulfillment.stops[*]'
+        stops: $.message.intent.fulfillment.stops[*]
         collected_by: $.message.intent.payment.collected_by
         vehicle_category: $.message.intent.fulfillment.vehicle.category
         search_4_tags: $.message.intent.tags
@@ -984,7 +952,7 @@ steps:
       inputs:
         id: ExampleInputId
         jsonSchema:
-          $schema: 'http://json-schema.org/draft-07/schema#'
+          $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
             start_time:
@@ -1002,26 +970,26 @@ steps:
             - end_time
           additionalProperties: false
         sampleData:
-          start_time: '2026-05-12T00:00:00.000Z'
-          end_time: '2026-05-15T00:00:00.000Z'
+          start_time: 2026-05-12T00:00:00.000Z
+          end_time: 2026-05-15T00:00:00.000Z
     examples:
       - name: example for search
         payload:
           context:
-            domain: 'ONDC:TRV13'
+            domain: ONDC:TRV13
             action: search
-            timestamp: '2026-05-12T12:59:58.840Z'
+            timestamp: 2026-05-12T12:59:58.840Z
             transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
             message_id: db0430b8-4740-40f1-a6ef-a238c09fc8d7
             bap_id: bap.example.com
-            bap_uri: 'https://bap.example.com'
+            bap_uri: https://bap.example.com
             ttl: P7D
             version: 2.0.1
             location:
               country:
                 code: IND
               city:
-                code: 'std:080'
+                code: std:080
           message:
             intent:
               category:
@@ -1030,13 +998,13 @@ steps:
                 time:
                   label: AVAILABLE
                   range:
-                    start: '2026-05-13T00:00:00.000Z'
-                    end: '2026-05-13T00:00:00.000Z'
+                    start: 2026-05-13T00:00:00.000Z
+                    end: 2026-05-13T00:00:00.000Z
               fulfillment:
                 stops:
                   - location:
-                      area_code: '560100'
-                      gps: '12.827359, 77.691570'
+                      area_code: "560100"
+                      gps: 12.827359, 77.691570
                     type: END
               tags:
                 - descriptor:
@@ -1044,20 +1012,19 @@ steps:
                   list:
                     - descriptor:
                         code: STATIC_TERMS
-                      value: 'https://static_terms.com'
+                      value: https://static_terms.com
                     - descriptor:
                         code: STATIC_TERMS_NEW
-                      value: >-
-                        https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                      value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                     - descriptor:
                         code: EFFECTIVE_DATE
-                      value: '2024-01-01T00:00:00.000Z'
+                      value: 2024-01-01T00:00:00.000Z
                 - descriptor:
                     code: BUYER_FINDER_FEES
                   list:
                     - descriptor:
                         code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: '3'
+                      value: "3"
         type: request
         description: please add relevant description
   - api: on_search
@@ -1065,29 +1032,26 @@ steps:
     owner: BPP
     responseFor: search_7
     unsolicited: false
-    description: please add relevant description
+    description: The BPP responds to the BAP's search request with a catalog of available hotels and rooms matching the search criteria, including provider details and inventory for the specified location and travel dates. This on_search response enables the BAP to present available options to the customer for booking selection.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZyA9IHNlc3Npb25EYXRhPy5vbl9zZWFyY2hfNl9jYXRhbG9nWzBdID8/IHt9OwogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
-      validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3NpbmcgY2F0YWxvZyBpbiBvbl9zZWFyY2giIH07CiAgfQogIGNvbnN0IGNhdGFsb2cgPSB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZzsKICBpZiAoIWNhdGFsb2cucHJvdmlkZXJzIHx8ICFBcnJheS5pc0FycmF5KGNhdGFsb2cucHJvdmlkZXJzKSB8fCBjYXRhbG9nLnByb3ZpZGVycy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkNhdGFsb2cgcHJvdmlkZXJzIGxpc3QgaXMgbWlzc2luZyBvciBlbXB0eSIgfTsKICB9CiAgZm9yIChjb25zdCBwcm92aWRlciBvZiBjYXRhbG9nLnByb3ZpZGVycykgewogICAgaWYgKCFwcm92aWRlci5pZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciBpcyBtaXNzaW5nIElEIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5kZXNjcmlwdG9yIHx8ICFwcm92aWRlci5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBpcyBtaXNzaW5nIGRlc2NyaXB0b3IgbmFtZSIgfTsKICAgIH0KICAgIGlmICghcHJvdmlkZXIubG9jYXRpb25zIHx8ICFBcnJheS5pc0FycmF5KHByb3ZpZGVyLmxvY2F0aW9ucykgfHwgcHJvdmlkZXIubG9jYXRpb25zLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgbG9jYXRpb25zIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5wYXltZW50cyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5wYXltZW50cykgfHwgcHJvdmlkZXIucGF5bWVudHMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBvZmZlciBwYXltZW50IG9wdGlvbnMiIH07CiAgICB9CiAgICBjb25zdCB2YWxpZFBheW1lbnRUeXBlcyA9IFsiUFJFLU9SREVSIiwgIk9OLUZVTEZJTExNRU5UIiwgIlBBUlQtUEFZTUVOVCIsICJQT1NULUZVTEZJTExNRU5UIl07CiAgICBmb3IgKGNvbnN0IHBheW1lbnQgb2YgcHJvdmlkZXIucGF5bWVudHMpIHsKICAgICAgaWYgKCF2YWxpZFBheW1lbnRUeXBlcy5pbmNsdWRlcyhwYXltZW50LnR5cGUpKSB7CiAgICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBoYXMgaW52YWxpZCBwYXltZW50IHR5cGU6ICIgKyBwYXltZW50LnR5cGUgfTsKICAgICAgfQogICAgfQogICAgaWYgKCFwcm92aWRlci5pdGVtcyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5pdGVtcykgfHwgcHJvdmlkZXIuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBoYXZlIGl0ZW1zIiB9OwogICAgfQogICAgZm9yIChjb25zdCBpdGVtIG9mIHByb3ZpZGVyLml0ZW1zKSB7CiAgICAgIGlmICghaXRlbS5pZCkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gaXMgbWlzc2luZyBJRCBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgfTsKICAgICAgfQogICAgICBpZiAoIWl0ZW0uZGVzY3JpcHRvciB8fCAhaXRlbS5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJJdGVtICIgKyBpdGVtLmlkICsgIiBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgZGVzY3JpcHRvciBuYW1lIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5wcmljZSB8fCAhaXRlbS5wcmljZS52YWx1ZSB8fCAhaXRlbS5wcmljZS5jdXJyZW5jeSkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBwcmljZSBkZXRhaWxzIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5xdWFudGl0eSB8fCAhaXRlbS5xdWFudGl0eS5hdmFpbGFibGUgfHwgdHlwZW9mIGl0ZW0ucXVhbnRpdHkuYXZhaWxhYmxlLmNvdW50ID09PSAndW5kZWZpbmVkJykgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBhdmFpbGFibGUgcXVhbnRpdHkgY291bnQiIH07CiAgICAgIH0KICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
-      requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhIHx8ICFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRyYW5zYWN0aW9uSWQgZnJvbSBzZWFyY2ggc3RlcCIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uY2l0eV9jb2RlID8/ICJzdGQ6MDgwIgogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZyA9IHNlc3Npb25EYXRhPy5vbl9zZWFyY2hfNl9jYXRhbG9nWzBdID8/IHt9OwogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXRhcmdldFBheWxvYWQgfHwgIXRhcmdldFBheWxvYWQubWVzc2FnZSB8fCAhdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3NpbmcgY2F0YWxvZyBpbiBvbl9zZWFyY2giIH07CiAgfQogIGNvbnN0IGNhdGFsb2cgPSB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZzsKICBpZiAoIWNhdGFsb2cucHJvdmlkZXJzIHx8ICFBcnJheS5pc0FycmF5KGNhdGFsb2cucHJvdmlkZXJzKSB8fCBjYXRhbG9nLnByb3ZpZGVycy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkNhdGFsb2cgcHJvdmlkZXJzIGxpc3QgaXMgbWlzc2luZyBvciBlbXB0eSIgfTsKICB9CiAgZm9yIChjb25zdCBwcm92aWRlciBvZiBjYXRhbG9nLnByb3ZpZGVycykgewogICAgaWYgKCFwcm92aWRlci5pZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciBpcyBtaXNzaW5nIElEIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5kZXNjcmlwdG9yIHx8ICFwcm92aWRlci5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBpcyBtaXNzaW5nIGRlc2NyaXB0b3IgbmFtZSIgfTsKICAgIH0KICAgIGlmICghcHJvdmlkZXIubG9jYXRpb25zIHx8ICFBcnJheS5pc0FycmF5KHByb3ZpZGVyLmxvY2F0aW9ucykgfHwgcHJvdmlkZXIubG9jYXRpb25zLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJQcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgbG9jYXRpb25zIiB9OwogICAgfQogICAgaWYgKCFwcm92aWRlci5wYXltZW50cyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5wYXltZW50cykgfHwgcHJvdmlkZXIucGF5bWVudHMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBvZmZlciBwYXltZW50IG9wdGlvbnMiIH07CiAgICB9CiAgICBjb25zdCB2YWxpZFBheW1lbnRUeXBlcyA9IFsiUFJFLU9SREVSIiwgIk9OLUZVTEZJTExNRU5UIiwgIlBBUlQtUEFZTUVOVCIsICJQT1NULUZVTEZJTExNRU5UIl07CiAgICBmb3IgKGNvbnN0IHBheW1lbnQgb2YgcHJvdmlkZXIucGF5bWVudHMpIHsKICAgICAgaWYgKCF2YWxpZFBheW1lbnRUeXBlcy5pbmNsdWRlcyhwYXltZW50LnR5cGUpKSB7CiAgICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgIiArIHByb3ZpZGVyLmlkICsgIiBoYXMgaW52YWxpZCBwYXltZW50IHR5cGU6ICIgKyBwYXltZW50LnR5cGUgfTsKICAgICAgfQogICAgfQogICAgaWYgKCFwcm92aWRlci5pdGVtcyB8fCAhQXJyYXkuaXNBcnJheShwcm92aWRlci5pdGVtcykgfHwgcHJvdmlkZXIuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIlByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgbXVzdCBoYXZlIGl0ZW1zIiB9OwogICAgfQogICAgZm9yIChjb25zdCBpdGVtIG9mIHByb3ZpZGVyLml0ZW1zKSB7CiAgICAgIGlmICghaXRlbS5pZCkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gaXMgbWlzc2luZyBJRCBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgfTsKICAgICAgfQogICAgICBpZiAoIWl0ZW0uZGVzY3JpcHRvciB8fCAhaXRlbS5kZXNjcmlwdG9yLm5hbWUpIHsKICAgICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJJdGVtICIgKyBpdGVtLmlkICsgIiBpbiBwcm92aWRlciAiICsgcHJvdmlkZXIuaWQgKyAiIGlzIG1pc3NpbmcgZGVzY3JpcHRvciBuYW1lIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5wcmljZSB8fCAhaXRlbS5wcmljZS52YWx1ZSB8fCAhaXRlbS5wcmljZS5jdXJyZW5jeSkgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBwcmljZSBkZXRhaWxzIiB9OwogICAgICB9CiAgICAgIGlmICghaXRlbS5xdWFudGl0eSB8fCAhaXRlbS5xdWFudGl0eS5hdmFpbGFibGUgfHwgdHlwZW9mIGl0ZW0ucXVhbnRpdHkuYXZhaWxhYmxlLmNvdW50ID09PSAndW5kZWZpbmVkJykgewogICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gIiArIGl0ZW0uaWQgKyAiIGluIHByb3ZpZGVyICIgKyBwcm92aWRlci5pZCArICIgaXMgbWlzc2luZyBhdmFpbGFibGUgcXVhbnRpdHkgY291bnQiIH07CiAgICAgIH0KICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhIHx8ICFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRyYW5zYWN0aW9uSWQgZnJvbSBzZWFyY2ggc3RlcCIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_search
           bap_id: dev-automation.ondc.org
-          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer'
+          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/buyer
           bpp_id: dev-automation.ondc.org
-          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/seller'
-          domain: 'ONDC:TRV13'
+          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV13/2.0.1/seller
+          domain: ONDC:TRV13
           location:
             city:
-              code: 'std:011'
+              code: std:011
             country:
               code: IND
           message_id: b1e775e0-496f-44ba-a508-00b2253e69c7
-          timestamp: '2026-03-12T12:27:00.129Z'
+          timestamp: 2026-03-12T12:27:00.129Z
           transaction_id: 8af51fc6-5c0a-4e44-b0a2-b3c967d9e983
           ttl: PT30S
           version: 2.0.1
@@ -1097,35 +1061,32 @@ steps:
               name: ONDC Hotel Groups
               code: BPP Code
               short_desc: Hotel BPP ONDC
-              long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+              long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
               images:
-                - url: 'https://remote-image.ondc.hotelbpp.com'
+                - url: https://remote-image.ondc.hotelbpp.com
             providers:
               - id: P1
                 time:
                   label: ENABLE
-                  timestamp: '2023-12-20T05:28:04.300Z'
+                  timestamp: 2023-12-20T05:28:04.300Z
                 descriptor:
                   name: ONDC Hotel Provider ABC
                   code: Hotel
                   short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                  long_desc: >-
-                    Hotel ABC ONDC Provider is equipped with a variety of
-                    on-site amenities to enhance the overall quality and
-                    enjoyment of your experience
+                  long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                   images:
-                    - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                    - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                    - url: https://remote-image-ABC.ondc.hotelbpp.com
+                    - url: https://remote-image-ABC-2.ondc.hotelbpp.com
                 locations:
                   - id: L1
-                    gps: '12.889849, 78.006663'
+                    gps: 12.889849, 78.006663
                     address: M.Hosahalli
                     city:
                       name: Bangalore
                     state:
                       name: Karnataka
-                    area_code: '563139'
-                    rating: '5'
+                    area_code: "563139"
+                    rating: "5"
                 categories:
                   - id: dlx-1234
                     descriptor:
@@ -1144,20 +1105,20 @@ steps:
                   - id: Accommodation-1
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                     descriptor:
                       name: Deluxe Room
                       code: DELUXE
                       additional_desc:
-                        url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '2000.00'
-                      maximum_value: '3000.00'
+                      value: "2000.00"
+                      maximum_value: "3000.00"
                     quantity:
                       available:
                         count: 12
@@ -1178,41 +1139,39 @@ steps:
                           short_desc: Accommodation with breakfast included
                         price:
                           currency: INR
-                          value: '200.00'
-                          maximum_value: '300.00'
+                          value: "200.00"
+                          maximum_value: "300.00"
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '500.00'
-                          maximum_value: '700.00'
+                          value: "500.00"
+                          maximum_value: "700.00"
                       - id: extra-bed-child
                         descriptor:
                           name: child bed
                           short_desc: Accomodation with extra child bed
                         price:
                           currency: INR
-                          value: '200.00'
-                          maximum_value: '300.00'
+                          value: "200.00"
+                          maximum_value: "300.00"
                       - id: extra-bed-adult
                         descriptor:
                           name: adult bed
                           short_desc: Accomodation with extra adult bed
                         price:
                           currency: INR
-                          value: '300.00'
-                          maximum_value: '500.00'
+                          value: "300.00"
+                          maximum_value: "500.00"
                     cancellation_terms:
                       - cancellation_fee:
-                          percentage: '10'
+                          percentage: "10"
                         cancel_by:
                           range:
-                            start: '2023-12-20T05:28:04.300Z'
-                            end: '2023-12-22T05:28:04.300Z'
+                            start: 2023-12-20T05:28:04.300Z
+                            end: 2023-12-22T05:28:04.300Z
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -1245,24 +1204,24 @@ steps:
                   - id: Accommodation-2
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                       duration: PT2H
                       range:
-                        start: '2023-12-20T05:28:04.300Z'
-                        end: '2023-12-20T06:28:04.300Z'
+                        start: 2023-12-20T05:28:04.300Z
+                        end: 2023-12-20T06:28:04.300Z
                     descriptor:
                       name: Family Suite
                       code: SUITE
                       additional_desc:
-                        url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '7000.00'
-                      maximum_value: '8000.00'
+                      value: "7000.00"
+                      maximum_value: "8000.00"
                     quantity:
                       available:
                         count: 2
@@ -1278,22 +1237,20 @@ steps:
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '3000.00'
-                          maximum_value: '4000.00'
+                          value: "3000.00"
+                          maximum_value: "4000.00"
                     cancellation_terms:
                       - cancellation_fee:
                           amount:
                             currency: INR
-                            value: '100'
+                            value: "100"
                         cancel_by:
                           range:
-                            start: '2023-12-20T05:28:04.300Z'
-                            end: '2023-12-22T05:28:04.300Z'
+                            start: 2023-12-20T05:28:04.300Z
+                            end: 2023-12-22T05:28:04.300Z
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -1326,24 +1283,24 @@ steps:
                   - id: Accommodation-3
                     time:
                       label: ENABLE
-                      timestamp: '2023-12-20T05:28:04.300Z'
+                      timestamp: 2023-12-20T05:28:04.300Z
                       duration: PT2H
                       range:
-                        start: '2023-12-20T05:28:04.300Z'
-                        end: '2023-12-20T06:28:04.300Z'
+                        start: 2023-12-20T05:28:04.300Z
+                        end: 2023-12-20T06:28:04.300Z
                     descriptor:
                       name: Family Suite
                       code: SUITE
                       additional_desc:
-                        url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                        url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                         content_type: application/json
                       images:
-                        - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                        - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                        - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                        - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                     price:
                       currency: INR
-                      value: '6000.00'
-                      maximum_value: '8000.00'
+                      value: "6000.00"
+                      maximum_value: "8000.00"
                     quantity:
                       available:
                         count: 2
@@ -1359,17 +1316,15 @@ steps:
                       - id: full-board
                         descriptor:
                           name: Full Board
-                          short_desc: >-
-                            Accommodation with all meals included (breakfast,
-                            lunch, and dinner)
+                          short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                         price:
                           currency: INR
-                          value: '3000.00'
-                          maximum_value: '4000.00'
+                          value: "3000.00"
+                          maximum_value: "4000.00"
                     cancellation_terms:
                       - external_ref:
                           mimetype: application/json
-                          url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                          url: https://remote-terms-ABC.ondc.hotelbpp.com
                         cancellation_eligible: true
                     recommended: true
                     tags:
@@ -1437,15 +1392,14 @@ steps:
         city_code: $.context.location.city.code
         message_id: $.context.message_id
         transaction_id: $.context.transaction_id
-        start_location: '$.message.intent.fulfillment.stops[?(@.type==''START'')].location.gps'
-        intermediate_location: >-
-          $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
-        end_location: '$.message.intent.fulfillment.stops[?(@.type==''END'')].location.gps'
+        start_location: $.message.intent.fulfillment.stops[?(@.type=='START')].location.gps
+        intermediate_location: $.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps
+        end_location: $.message.intent.fulfillment.stops[?(@.type=='END')].location.gps
         payment_collected_by: $.message.intent.payment.collected_by
-        stops: '$.message.intent.fulfillment.stops[*]'
+        stops: $.message.intent.fulfillment.stops[*]
         collected_by: $.message.intent.payment.collected_by
-        on_search_1_provider_id: '$.message.catalog.providers[*].id'
-        on_search_1_items: '$.message.catalog.providers[*].items'
+        on_search_1_provider_id: $.message.catalog.providers[*].id
+        on_search_1_items: $.message.catalog.providers[*].items
         bpp_uri: $.context.bpp_uri
         on_search_1_catalog: $.message.catalog
         bpp_id: $.context.bpp_id
@@ -1454,57 +1408,54 @@ steps:
       - name: example for on_search
         payload:
           context:
-            domain: 'ONDC:TRV13'
+            domain: ONDC:TRV13
             action: on_search
-            timestamp: '2026-05-12T12:59:58.853Z'
+            timestamp: 2026-05-12T12:59:58.853Z
             transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
             message_id: db0430b8-4740-40f1-a6ef-a238c09fc8d7
             bap_id: bap.example.com
-            bap_uri: 'https://bap.example.com'
+            bap_uri: https://bap.example.com
             ttl: PT30S
             bpp_id: bpp.example.com
-            bpp_uri: 'https://bpp.example.com'
+            bpp_uri: https://bpp.example.com
             version: 2.0.1
             location:
               country:
                 code: IND
               city:
-                code: 'std:080'
+                code: std:080
           message:
             catalog:
               descriptor:
                 name: ONDC Hotel Groups
                 code: BPP Code
                 short_desc: Hotel BPP ONDC
-                long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+                long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
                 images:
-                  - url: 'https://remote-image.ondc.hotelbpp.com'
+                  - url: https://remote-image.ondc.hotelbpp.com
               providers:
                 - id: P1
                   time:
                     label: ENABLE
-                    timestamp: '2026-05-12T12:59:52.898Z'
+                    timestamp: 2026-05-12T12:59:52.898Z
                   descriptor:
                     name: ONDC Hotel Provider ABC
                     code: Hotel
                     short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                    long_desc: >-
-                      Hotel ABC ONDC Provider is equipped with a variety of
-                      on-site amenities to enhance the overall quality and
-                      enjoyment of your experience
+                    long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                     images:
-                      - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-ABC.ondc.hotelbpp.com
+                      - url: https://remote-image-ABC-2.ondc.hotelbpp.com
                   locations:
                     - id: L1
-                      gps: '12.889849, 78.006663'
+                      gps: 12.889849, 78.006663
                       address: M.Hosahalli
                       city:
                         name: Bangalore
                       state:
                         name: Karnataka
-                      area_code: '563139'
-                      rating: '5'
+                      area_code: "563139"
+                      rating: "5"
                   categories:
                     - id: dlx-1234
                       descriptor:
@@ -1523,20 +1474,20 @@ steps:
                     - id: Accommodation-1
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                       descriptor:
                         name: Deluxe Room
                         code: DELUXE
                         additional_desc:
-                          url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '2000.00'
-                        maximum_value: '3000.00'
+                        value: "2000.00"
+                        maximum_value: "3000.00"
                       quantity:
                         available:
                           count: 12
@@ -1557,41 +1508,39 @@ steps:
                             short_desc: Accommodation with breakfast included
                           price:
                             currency: INR
-                            value: '200.00'
-                            maximum_value: '300.00'
+                            value: "200.00"
+                            maximum_value: "300.00"
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '500.00'
-                            maximum_value: '700.00'
+                            value: "500.00"
+                            maximum_value: "700.00"
                         - id: extra-bed-child
                           descriptor:
                             name: child bed
                             short_desc: Accomodation with extra child bed
                           price:
                             currency: INR
-                            value: '200.00'
-                            maximum_value: '300.00'
+                            value: "200.00"
+                            maximum_value: "300.00"
                         - id: extra-bed-adult
                           descriptor:
                             name: adult bed
                             short_desc: Accomodation with extra adult bed
                           price:
                             currency: INR
-                            value: '300.00'
-                            maximum_value: '500.00'
+                            value: "300.00"
+                            maximum_value: "500.00"
                       cancellation_terms:
                         - cancellation_fee:
-                            percentage: '10'
+                            percentage: "10"
                           cancel_by:
                             range:
-                              start: '2023-12-20T05:28:04.300Z'
-                              end: '2023-12-22T05:28:04.300Z'
+                              start: 2023-12-20T05:28:04.300Z
+                              end: 2023-12-22T05:28:04.300Z
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -1624,24 +1573,24 @@ steps:
                     - id: Accommodation-2
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                         duration: PT2H
                         range:
-                          start: '2026-05-12T12:59:52.898Z'
-                          end: '2026-05-12T14:59:52.898Z'
+                          start: 2026-05-12T12:59:52.898Z
+                          end: 2026-05-12T14:59:52.898Z
                       descriptor:
                         name: Family Suite
                         code: SUITE
                         additional_desc:
-                          url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '7000.00'
-                        maximum_value: '8000.00'
+                        value: "7000.00"
+                        maximum_value: "8000.00"
                       quantity:
                         available:
                           count: 2
@@ -1657,22 +1606,20 @@ steps:
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '3000.00'
-                            maximum_value: '4000.00'
+                            value: "3000.00"
+                            maximum_value: "4000.00"
                       cancellation_terms:
                         - cancellation_fee:
                             amount:
                               currency: INR
-                              value: '100'
+                              value: "100"
                           cancel_by:
                             range:
-                              start: '2023-12-20T05:28:04.300Z'
-                              end: '2023-12-22T05:28:04.300Z'
+                              start: 2023-12-20T05:28:04.300Z
+                              end: 2023-12-22T05:28:04.300Z
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -1705,24 +1652,24 @@ steps:
                     - id: Accommodation-3
                       time:
                         label: ENABLE
-                        timestamp: '2026-05-12T12:59:52.898Z'
+                        timestamp: 2026-05-12T12:59:52.898Z
                         duration: PT2H
                         range:
-                          start: '2026-05-12T12:59:52.898Z'
-                          end: '2026-05-12T14:59:52.898Z'
+                          start: 2026-05-12T12:59:52.898Z
+                          end: 2026-05-12T14:59:52.898Z
                       descriptor:
                         name: Family Suite
                         code: SUITE
                         additional_desc:
-                          url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                          url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                           content_type: application/json
                         images:
-                          - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                          - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                          - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                          - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                       price:
                         currency: INR
-                        value: '6000.00'
-                        maximum_value: '8000.00'
+                        value: "6000.00"
+                        maximum_value: "8000.00"
                       quantity:
                         available:
                           count: 2
@@ -1738,17 +1685,15 @@ steps:
                         - id: full-board
                           descriptor:
                             name: Full Board
-                            short_desc: >-
-                              Accommodation with all meals included (breakfast,
-                              lunch, and dinner)
+                            short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                           price:
                             currency: INR
-                            value: '3000.00'
-                            maximum_value: '4000.00'
+                            value: "3000.00"
+                            maximum_value: "4000.00"
                       cancellation_terms:
                         - external_ref:
                             mimetype: application/json
-                            url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                            url: https://remote-terms-ABC.ondc.hotelbpp.com
                           cancellation_eligible: true
                       recommended: true
                       tags:
@@ -1811,20 +1756,20 @@ transaction_history:
   - action_id: search_6
     payload:
       context:
-        domain: 'ONDC:TRV13'
+        domain: ONDC:TRV13
         action: search
-        timestamp: '2026-06-10T11:48:25.748Z'
+        timestamp: 2026-06-10T11:48:25.748Z
         transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
         message_id: aefa50e9-4c3f-4b0c-be60-d8c3c6ad1718
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         version: 2.0.1
         location:
           country:
             code: IND
           city:
-            code: 'std:044'
+            code: std:044
       message:
         intent:
           category:
@@ -1836,76 +1781,72 @@ transaction_history:
               list:
                 - descriptor:
                     code: STATIC_TERMS
-                  value: 'https://static_terms.com'
+                  value: https://static_terms.com
                 - descriptor:
                     code: STATIC_TERMS_NEW
-                  value: >-
-                    https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                  value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                 - descriptor:
                     code: EFFECTIVE_DATE
-                  value: '2024-01-01T00:00:00.000Z'
+                  value: 2024-01-01T00:00:00.000Z
             - descriptor:
                 code: BUYER_FINDER_FEES
               list:
                 - descriptor:
                     code: BUYER_FINDER_FEES_PERCENTAGE
-                  value: '3'
+                  value: "3"
     action: search
     saved_info: {}
   - action_id: on_search_6
     payload:
       context:
-        domain: 'ONDC:TRV13'
+        domain: ONDC:TRV13
         action: on_search
-        timestamp: '2026-06-10T11:48:25.768Z'
+        timestamp: 2026-06-10T11:48:25.768Z
         transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
         message_id: aefa50e9-4c3f-4b0c-be60-d8c3c6ad1718
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         bpp_id: bpp.example.com
-        bpp_uri: 'https://bpp.example.com'
+        bpp_uri: https://bpp.example.com
         version: 2.0.1
         location:
           country:
             code: IND
           city:
-            code: 'std:080'
+            code: std:080
       message:
         catalog:
           descriptor:
             name: ONDC Hotel Groups
             code: BPP Code
             short_desc: Hotel BPP ONDC
-            long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+            long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
             images:
-              - url: 'https://remote-image.ondc.hotelbpp.com'
+              - url: https://remote-image.ondc.hotelbpp.com
           providers:
             - id: P1
               time:
                 label: ENABLE
-                timestamp: '2026-06-10T11:48:25.771Z'
+                timestamp: 2026-06-10T11:48:25.771Z
               descriptor:
                 name: ONDC Hotel Provider ABC
                 code: Hotel
                 short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                long_desc: >-
-                  Hotel ABC ONDC Provider is equipped with a variety of on-site
-                  amenities to enhance the overall quality and enjoyment of your
-                  experience
+                long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                 images:
-                  - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                  - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                  - url: https://remote-image-ABC.ondc.hotelbpp.com
+                  - url: https://remote-image-ABC-2.ondc.hotelbpp.com
               locations:
                 - id: L1
-                  gps: '12.889849, 78.006663'
+                  gps: 12.889849, 78.006663
                   address: M.Hosahalli
                   city:
                     name: Bangalore
                   state:
                     name: Karnataka
-                  area_code: '563139'
-                  rating: '5'
+                  area_code: "563139"
+                  rating: "5"
               categories:
                 - id: dlx-1234
                   descriptor:
@@ -1924,20 +1865,20 @@ transaction_history:
                 - id: Accommodation-1
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                   descriptor:
                     name: Deluxe Room
                     code: DELUXE
                     additional_desc:
-                      url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '2000.00'
-                    maximum_value: '3000.00'
+                    value: "2000.00"
+                    maximum_value: "3000.00"
                   quantity:
                     available:
                       count: 12
@@ -1958,41 +1899,39 @@ transaction_history:
                         short_desc: Accommodation with breakfast included
                       price:
                         currency: INR
-                        value: '200.00'
-                        maximum_value: '300.00'
+                        value: "200.00"
+                        maximum_value: "300.00"
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '500.00'
-                        maximum_value: '700.00'
+                        value: "500.00"
+                        maximum_value: "700.00"
                     - id: extra-bed-child
                       descriptor:
                         name: child bed
                         short_desc: Accomodation with extra child bed
                       price:
                         currency: INR
-                        value: '200.00'
-                        maximum_value: '300.00'
+                        value: "200.00"
+                        maximum_value: "300.00"
                     - id: extra-bed-adult
                       descriptor:
                         name: adult bed
                         short_desc: Accomodation with extra adult bed
                       price:
                         currency: INR
-                        value: '300.00'
-                        maximum_value: '500.00'
+                        value: "300.00"
+                        maximum_value: "500.00"
                   cancellation_terms:
                     - cancellation_fee:
-                        percentage: '10'
+                        percentage: "10"
                       cancel_by:
                         range:
-                          start: '2023-12-20T05:28:04.300Z'
-                          end: '2023-12-22T05:28:04.300Z'
+                          start: 2023-12-20T05:28:04.300Z
+                          end: 2023-12-22T05:28:04.300Z
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2025,24 +1964,24 @@ transaction_history:
                 - id: Accommodation-2
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                     duration: PT2H
                     range:
-                      start: '2026-06-10T11:48:25.771Z'
-                      end: '2026-06-10T13:48:25.771Z'
+                      start: 2026-06-10T11:48:25.771Z
+                      end: 2026-06-10T13:48:25.771Z
                   descriptor:
                     name: Family Suite
                     code: SUITE
                     additional_desc:
-                      url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '7000.00'
-                    maximum_value: '8000.00'
+                    value: "7000.00"
+                    maximum_value: "8000.00"
                   quantity:
                     available:
                       count: 2
@@ -2058,22 +1997,20 @@ transaction_history:
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '3000.00'
-                        maximum_value: '4000.00'
+                        value: "3000.00"
+                        maximum_value: "4000.00"
                   cancellation_terms:
                     - cancellation_fee:
                         amount:
                           currency: INR
-                          value: '100'
+                          value: "100"
                       cancel_by:
                         range:
-                          start: '2023-12-20T05:28:04.300Z'
-                          end: '2023-12-22T05:28:04.300Z'
+                          start: 2023-12-20T05:28:04.300Z
+                          end: 2023-12-22T05:28:04.300Z
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2106,24 +2043,24 @@ transaction_history:
                 - id: Accommodation-3
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                     duration: PT2H
                     range:
-                      start: '2026-06-10T11:48:25.771Z'
-                      end: '2026-06-10T13:48:25.771Z'
+                      start: 2026-06-10T11:48:25.771Z
+                      end: 2026-06-10T13:48:25.771Z
                   descriptor:
                     name: Family Suite
                     code: SUITE
                     additional_desc:
-                      url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '6000.00'
-                    maximum_value: '8000.00'
+                    value: "6000.00"
+                    maximum_value: "8000.00"
                   quantity:
                     available:
                       count: 2
@@ -2139,17 +2076,15 @@ transaction_history:
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '3000.00'
-                        maximum_value: '4000.00'
+                        value: "3000.00"
+                        maximum_value: "4000.00"
                   cancellation_terms:
                     - external_ref:
                         mimetype: application/json
-                        url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                        url: https://remote-terms-ABC.ondc.hotelbpp.com
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2211,20 +2146,20 @@ transaction_history:
   - action_id: search_7
     payload:
       context:
-        domain: 'ONDC:TRV13'
+        domain: ONDC:TRV13
         action: search
-        timestamp: '2026-06-10T11:48:32.932Z'
+        timestamp: 2026-06-10T11:48:32.932Z
         transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
         message_id: 0aaa97d5-540e-4c07-be17-790e479bafc0
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: P7D
         version: 2.0.1
         location:
           country:
             code: IND
           city:
-            code: 'std:080'
+            code: std:080
       message:
         intent:
           category:
@@ -2233,13 +2168,13 @@ transaction_history:
             time:
               label: AVAILABLE
               range:
-                start: '2026-06-11T00:00:00.000Z'
-                end: '2026-06-12T00:00:00.000Z'
+                start: 2026-06-11T00:00:00.000Z
+                end: 2026-06-12T00:00:00.000Z
           fulfillment:
             stops:
               - location:
-                  area_code: '560100'
-                  gps: '12.827359, 77.691570'
+                  area_code: "560100"
+                  gps: 12.827359, 77.691570
                 type: END
           tags:
             - descriptor:
@@ -2247,76 +2182,72 @@ transaction_history:
               list:
                 - descriptor:
                     code: STATIC_TERMS
-                  value: 'https://static_terms.com'
+                  value: https://static_terms.com
                 - descriptor:
                     code: STATIC_TERMS_NEW
-                  value: >-
-                    https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
+                  value: https://github.com/ONDC-Official/static-terms//buyerNP_BNP/1.0/tc.pdf
                 - descriptor:
                     code: EFFECTIVE_DATE
-                  value: '2024-01-01T00:00:00.000Z'
+                  value: 2024-01-01T00:00:00.000Z
             - descriptor:
                 code: BUYER_FINDER_FEES
               list:
                 - descriptor:
                     code: BUYER_FINDER_FEES_PERCENTAGE
-                  value: '3'
+                  value: "3"
     action: search
     saved_info: {}
   - action_id: on_search_7
     payload:
       context:
-        domain: 'ONDC:TRV13'
+        domain: ONDC:TRV13
         action: on_search
-        timestamp: '2026-06-10T11:48:32.948Z'
+        timestamp: 2026-06-10T11:48:32.948Z
         transaction_id: 1772e349-43b1-4b31-8097-a860d0744865
         message_id: 0aaa97d5-540e-4c07-be17-790e479bafc0
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         bpp_id: bpp.example.com
-        bpp_uri: 'https://bpp.example.com'
+        bpp_uri: https://bpp.example.com
         version: 2.0.1
         location:
           country:
             code: IND
           city:
-            code: 'std:080'
+            code: std:080
       message:
         catalog:
           descriptor:
             name: ONDC Hotel Groups
             code: BPP Code
             short_desc: Hotel BPP ONDC
-            long_desc: 'ONDC Hotel Groups is a Hotel Aggregator '
+            long_desc: "ONDC Hotel Groups is a Hotel Aggregator "
             images:
-              - url: 'https://remote-image.ondc.hotelbpp.com'
+              - url: https://remote-image.ondc.hotelbpp.com
           providers:
             - id: P1
               time:
                 label: ENABLE
-                timestamp: '2026-06-10T11:48:25.771Z'
+                timestamp: 2026-06-10T11:48:25.771Z
               descriptor:
                 name: ONDC Hotel Provider ABC
                 code: Hotel
                 short_desc: Hotel ABC ONDC is a renowned hotel provider in India
-                long_desc: >-
-                  Hotel ABC ONDC Provider is equipped with a variety of on-site
-                  amenities to enhance the overall quality and enjoyment of your
-                  experience
+                long_desc: Hotel ABC ONDC Provider is equipped with a variety of on-site amenities to enhance the overall quality and enjoyment of your experience
                 images:
-                  - url: 'https://remote-image-ABC.ondc.hotelbpp.com'
-                  - url: 'https://remote-image-ABC-2.ondc.hotelbpp.com'
+                  - url: https://remote-image-ABC.ondc.hotelbpp.com
+                  - url: https://remote-image-ABC-2.ondc.hotelbpp.com
               locations:
                 - id: L1
-                  gps: '12.889849, 78.006663'
+                  gps: 12.889849, 78.006663
                   address: M.Hosahalli
                   city:
                     name: Bangalore
                   state:
                     name: Karnataka
-                  area_code: '563139'
-                  rating: '5'
+                  area_code: "563139"
+                  rating: "5"
               categories:
                 - id: dlx-1234
                   descriptor:
@@ -2335,20 +2266,20 @@ transaction_history:
                 - id: Accommodation-1
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                   descriptor:
                     name: Deluxe Room
                     code: DELUXE
                     additional_desc:
-                      url: 'https://remote-image-Acc-1-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-1-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-1-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-1-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-1-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-1-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '2000.00'
-                    maximum_value: '3000.00'
+                    value: "2000.00"
+                    maximum_value: "3000.00"
                   quantity:
                     available:
                       count: 12
@@ -2369,41 +2300,39 @@ transaction_history:
                         short_desc: Accommodation with breakfast included
                       price:
                         currency: INR
-                        value: '200.00'
-                        maximum_value: '300.00'
+                        value: "200.00"
+                        maximum_value: "300.00"
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '500.00'
-                        maximum_value: '700.00'
+                        value: "500.00"
+                        maximum_value: "700.00"
                     - id: extra-bed-child
                       descriptor:
                         name: child bed
                         short_desc: Accomodation with extra child bed
                       price:
                         currency: INR
-                        value: '200.00'
-                        maximum_value: '300.00'
+                        value: "200.00"
+                        maximum_value: "300.00"
                     - id: extra-bed-adult
                       descriptor:
                         name: adult bed
                         short_desc: Accomodation with extra adult bed
                       price:
                         currency: INR
-                        value: '300.00'
-                        maximum_value: '500.00'
+                        value: "300.00"
+                        maximum_value: "500.00"
                   cancellation_terms:
                     - cancellation_fee:
-                        percentage: '10'
+                        percentage: "10"
                       cancel_by:
                         range:
-                          start: '2023-12-20T05:28:04.300Z'
-                          end: '2023-12-22T05:28:04.300Z'
+                          start: 2023-12-20T05:28:04.300Z
+                          end: 2023-12-22T05:28:04.300Z
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2436,24 +2365,24 @@ transaction_history:
                 - id: Accommodation-2
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                     duration: PT2H
                     range:
-                      start: '2026-06-10T11:48:25.771Z'
-                      end: '2026-06-10T13:48:25.771Z'
+                      start: 2026-06-10T11:48:25.771Z
+                      end: 2026-06-10T13:48:25.771Z
                   descriptor:
                     name: Family Suite
                     code: SUITE
                     additional_desc:
-                      url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '7000.00'
-                    maximum_value: '8000.00'
+                    value: "7000.00"
+                    maximum_value: "8000.00"
                   quantity:
                     available:
                       count: 2
@@ -2469,22 +2398,20 @@ transaction_history:
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '3000.00'
-                        maximum_value: '4000.00'
+                        value: "3000.00"
+                        maximum_value: "4000.00"
                   cancellation_terms:
                     - cancellation_fee:
                         amount:
                           currency: INR
-                          value: '100'
+                          value: "100"
                       cancel_by:
                         range:
-                          start: '2023-12-20T05:28:04.300Z'
-                          end: '2023-12-22T05:28:04.300Z'
+                          start: 2023-12-20T05:28:04.300Z
+                          end: 2023-12-22T05:28:04.300Z
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2517,24 +2444,24 @@ transaction_history:
                 - id: Accommodation-3
                   time:
                     label: ENABLE
-                    timestamp: '2026-06-10T11:48:25.771Z'
+                    timestamp: 2026-06-10T11:48:25.771Z
                     duration: PT2H
                     range:
-                      start: '2026-06-10T11:48:25.771Z'
-                      end: '2026-06-10T13:48:25.771Z'
+                      start: 2026-06-10T11:48:25.771Z
+                      end: 2026-06-10T13:48:25.771Z
                   descriptor:
                     name: Family Suite
                     code: SUITE
                     additional_desc:
-                      url: 'https://remote-image-Acc-2-details.ondc.hotelbpp.com'
+                      url: https://remote-image-Acc-2-details.ondc.hotelbpp.com
                       content_type: application/json
                     images:
-                      - url: 'https://remote-image-Acc-2-1.ondc.hotelbpp.com'
-                      - url: 'https://remote-image-Acc-2-2.ondc.hotelbpp.com'
+                      - url: https://remote-image-Acc-2-1.ondc.hotelbpp.com
+                      - url: https://remote-image-Acc-2-2.ondc.hotelbpp.com
                   price:
                     currency: INR
-                    value: '6000.00'
-                    maximum_value: '8000.00'
+                    value: "6000.00"
+                    maximum_value: "8000.00"
                   quantity:
                     available:
                       count: 2
@@ -2550,17 +2477,15 @@ transaction_history:
                     - id: full-board
                       descriptor:
                         name: Full Board
-                        short_desc: >-
-                          Accommodation with all meals included (breakfast,
-                          lunch, and dinner)
+                        short_desc: Accommodation with all meals included (breakfast, lunch, and dinner)
                       price:
                         currency: INR
-                        value: '3000.00'
-                        maximum_value: '4000.00'
+                        value: "3000.00"
+                        maximum_value: "4000.00"
                   cancellation_terms:
                     - external_ref:
                         mimetype: application/json
-                        url: 'https://remote-terms-ABC.ondc.hotelbpp.com'
+                        url: https://remote-terms-ABC.ondc.hotelbpp.com
                       cancellation_eligible: true
                   recommended: true
                   tags:
@@ -2619,6 +2544,5 @@ transaction_history:
                         code: COOKING_APPLIANCES
     action: on_search
     saved_info: {}
-validationLib: ''
-helperLib: >-
-  LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+validationLib: ""
+helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
