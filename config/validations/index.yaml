@@ -877,28 +877,33 @@ _TESTS_:
               attr: $.message.order.quote.breakup[*].title
               _RETURN_: attr are present
             - _NAME_: REQUIRED_QUOTE_ITEM_ID
-              attr: $.message.order.quote.breakup[*].item.id
-              useCasePath: $.message.order.quote.breakup[*].title
+              _SCOPE_: $.message.order.quote.breakup[*]
+              attr: $.item.id
+              useCasePath: $.title
               var_title:
                 - TAX
                 - CONVENIENCE_FEE
-              _CONTINUE_: (var_title equal to useCasePath)
+              _CONTINUE_: (useCasePath any in var_title)
               _RETURN_: attr are present
             - _NAME_: REQUIRED_QUOTE_ITEM_PRICE_CURRENCY
-              attr: $.message.order.quote.breakup[*].item.price.currency
-              useCasePath: $.message.order.quote.breakup[*].title
+              _SCOPE_: $.message.order.quote.breakup[*]
+              attr: $.item.price.currency
+              useCasePath: $.title
               var_title:
                 - TAX
                 - CONVENIENCE_FEE
-              _CONTINUE_: (var_title equal to useCasePath)
+                - ADD_ONS
+              _CONTINUE_: (useCasePath any in var_title)
               _RETURN_: attr are present
             - _NAME_: REQUIRED_QUOTE_ITEM_PRICE_VALUE
-              attr: $.message.order.quote.breakup[*].item.price.value
-              useCasePath: $.message.order.quote.breakup[*].title
+              _SCOPE_: $.message.order.quote.breakup[*]
+              attr: $.item.price.value
+              useCasePath: $.title
               var_title:
                 - TAX
                 - CONVENIENCE_FEE
-              _CONTINUE_: (var_title equal to useCasePath)
+                - ADD_ONS
+              _CONTINUE_: (useCasePath any in var_title)
               _RETURN_: attr are present
         - _NAME_: ENUM_QUOTE
           _RETURN_:
